@@ -36,5 +36,7 @@ public class IocT extends TestCase {
         Car car = (Car) BeanContainer.getBeanMap().get(Car.class);
         System.out.println(car.getName());
         System.out.println(car.getLunzi().getName());
+        assertEquals("car",car.getName());
+        assertEquals("lunzi",car.getLunzi().getName());
     }
 }
