@@ -85,7 +85,6 @@ public abstract class ClassTemplate {
         try {
             // 获取包名路径下的 class 文件或目录
             File[] files = new File(packagePath).listFiles(new FileFilter() {
-                @Override
                 public boolean accept(File file) {
                     return (file.isFile() && file.getName().endsWith(".class")) || file.isDirectory();
                 }

@@ -1,4 +1,4 @@
-package org.jeff.spring.classscanner; /*
+package org.jeff.spring.classscanner.support; /*
  * Copyright [2015] [Jeff Lee]
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,29 +15,18 @@ package org.jeff.spring.classscanner; /*
  */
 
 import java.lang.annotation.Annotation;
-import java.util.List;
 
 /**
- * 类扫描器
- *
+ * 用于获取注解类的抽象模板类
  * @author BYSocket
- * @since 2016-01-07 19:36:00
+ * @since 2016-01-11 16:48:00
  */
-public interface ClassScanner {
-    public final static String CLASS_SCANNER = "org.jeff.class_scanner";
+public abstract class AnnotationClassTemplate extends ClassTemplate {
 
-    /**
-     * 获取指定包名中的所有类
-     * @param packageName 包名
-     * @return
-     */
-    List<Class<?>> getClassList(String packageName);
+    protected final Class<? extends Annotation> annotationClass;
 
-    /**
-     * 获取指定包名中的所有类
-     * @param packageName 包名
-     * @param annotationClass 注解类
-     * @return
-     */
-    List<Class<?>> getClassListByAnnotation(String packageName, Class<? extends Annotation> annotationClass);
+    protected AnnotationClassTemplate(String packageName, Class<? extends Annotation> annotationClass) {
+        super(packageName);
+        this.annotationClass = annotationClass;
+    }
 }

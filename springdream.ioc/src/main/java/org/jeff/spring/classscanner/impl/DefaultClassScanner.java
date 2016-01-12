@@ -15,8 +15,10 @@ package org.jeff.spring.classscanner.impl; /*
  */
 
 import org.jeff.spring.classscanner.ClassScanner;
+import org.jeff.spring.classscanner.support.AnnotationClassTemplate;
 import org.jeff.spring.classscanner.support.ClassTemplate;
 
+import java.lang.annotation.Annotation;
 import java.util.List;
 
 /**
@@ -32,6 +34,16 @@ public class DefaultClassScanner implements ClassScanner {
                 String className = cls.getName();
                 String pkgName   = className.substring(0, className.lastIndexOf("."));
                 return pkgName.startsWith(packageName);
+            }
+        }.getClassList();
+    }
+
+    public List<Class<?>> getClassListByAnnotation(String packageName, Class<? extends Annotation> annotationClass) {
+        return new AnnotationClassTemplate(packageName,annotationClass) {
+
+            @Override
+            public boolean checkAddClass(Class<?> cls) {
+                return cls.isAnonymousClass();
             }
         }.getClassList();
     }

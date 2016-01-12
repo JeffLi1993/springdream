@@ -14,30 +14,31 @@ package org.jeff.spring.classscanner; /*
  * limitations under the License.
  */
 
+import org.jeff.spring.ioc.IocConfig;
+
 import java.lang.annotation.Annotation;
 import java.util.List;
 
 /**
- * 类扫描器
- *
  * @author BYSocket
- * @since 2016-01-07 19:36:00
+ * @since 2016-01-11 16:39:00
  */
-public interface ClassScanner {
-    public final static String CLASS_SCANNER = "org.jeff.class_scanner";
+public class ClassScannerHelper {
+
+    private static final ClassScanner classScanner = ClassScannerFactory.getClassScanner();
 
     /**
-     * 获取指定包名中的所有类
-     * @param packageName 包名
-     * @return
+     * 获取基础包名中的所有类
      */
-    List<Class<?>> getClassList(String packageName);
+    public static List<Class<?>> getClassList() {
+        return classScanner.getClassList(IocConfig.pageName);
+    }
 
     /**
-     * 获取指定包名中的所有类
-     * @param packageName 包名
+     * 获取基础包名中指定注解的相关类
      * @param annotationClass 注解类
-     * @return
      */
-    List<Class<?>> getClassListByAnnotation(String packageName, Class<? extends Annotation> annotationClass);
+    public static List<Class<?>> getClassListByAnnotation(Class<? extends Annotation> annotationClass) {
+        return classScanner.getClassListByAnnotation(IocConfig.pageName,annotationClass);
+    }
 }
