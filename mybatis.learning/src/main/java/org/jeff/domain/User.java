@@ -1,12 +1,10 @@
 package org.jeff.domain;
 
-import java.io.Serializable;
-
 /**
  * 描述:用户类
  * Created by bysocket on 16/3/8.
  */
-public class User implements Serializable {
+public class User{
     private int id;
     private String userName;
     private String password;
