@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+       <!--======================================常规配置======================================-->
+       <!--Spring注解Bean,自动完成注入-->
+       <context:component-scan base-package="org.spring"/>
+
+       <!--======================================Properties配置======================================-->
+       <context:property-placeholder location="application.properties"/>
+
+       <!--======================================Redis相关配置======================================-->
+       <!-- 配置redis池，依次为最大实例数，最大空闲实例数，(创建实例时)最大等待时间，(创建实例时)是否验证 -->
+       <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+              <property name="maxTotal" value="${redis.maxTotal}"/>
+              <property name="maxIdle" value="${redis.maxIdle}"/>
+              <property name="maxWaitMillis" value="${redis.maxWaitMillis}"/>
+              <property name="testOnBorrow" value="${redis.testObBorrow}"/>
+       </bean>
+
+       <!-- redis连接配置，依次为主机ip，端口，是否使用池，(usePool=true时)redis的池配置 -->
+       <bean id="jedisFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+              <property name="hostName" value="${redis.host}"/>
+              <property name="port" value="${redis.port}"/>
+              <property name="usePool" value="true"/>
+              <property name="poolConfig" ref="jedisPoolConfig"/>
+       </bean>
+
+       <!-- redis模板配置 -->
+       <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+              <property name="connectionFactory" ref="jedisFactory"/>
+              <property name="defaultSerializer">
+                     <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
+              </property>
+       </bean>
+
+       <!-- redis service bean配置 -->
+       <bean id="redisService" class="org.spring.redis.RedisService" >
+              <property name="redisTemplate" ref="redisTemplate"/>
+              <property name="cacheTTL" value="${redis.ttl}"/>
+       </bean>
+
+</beans>
