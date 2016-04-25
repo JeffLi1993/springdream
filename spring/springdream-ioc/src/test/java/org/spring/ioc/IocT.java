@@ -1,4 +1,4 @@
-package org.ioc; /*
+package org.spring.ioc; /*
  * Copyright [2015] [Jeff Lee]
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,8 +15,6 @@ package org.ioc; /*
  */
 
 import junit.framework.TestCase;
-import org.spring.ioc.BeanContainer;
-import org.jeff.spring.ioc.IocContainer;
 import org.junit.Test;
 
 /**
@@ -25,18 +23,12 @@ import org.junit.Test;
  * @since 2016-01-12 10:47:00
  */
 public class IocT extends TestCase {
-    static {
-        // 初始化IOC容器
-        IocContainer iocContainer = new IocContainer();
-    }
 
     @Test
     public void testIoc() {
         // 从Bean容器获取Class
         Car car = (Car) BeanContainer.getBeanMap().get(Car.class);
         System.out.println(car.getName());
-        System.out.println(car.getLunzi().getName());
         assertEquals("car",car.getName());
-        assertEquals("lunzi",car.getLunzi().getName());
     }
 }

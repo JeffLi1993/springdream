@@ -1,6 +1,6 @@
-package org.jeff.mapper;
+package org.spring.jeff.mapper;
 
-import org.jeff.domain.User;
+import org.spring.jeff.domain.User;
 
 /**
  * 描述:User Mapper映射类

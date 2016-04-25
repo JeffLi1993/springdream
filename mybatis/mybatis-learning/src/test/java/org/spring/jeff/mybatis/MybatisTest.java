@@ -1,11 +1,11 @@
-package org.jeff.mybatis;
+package org.spring.jeff.mybatis;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.jeff.domain.User;
-import org.jeff.mapper.UserMapper;
+import org.spring.jeff.domain.User;
+import org.spring.jeff.mapper.UserMapper;
 
 import java.io.IOException;
 import java.io.InputStream;

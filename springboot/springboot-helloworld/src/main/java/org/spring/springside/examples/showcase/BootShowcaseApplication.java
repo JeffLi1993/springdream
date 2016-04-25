@@ -1,4 +1,4 @@
-package org.springside.examples.showcase;
+package org.spring.springside.examples.showcase;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

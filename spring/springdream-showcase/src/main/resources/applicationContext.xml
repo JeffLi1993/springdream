@@ -42,7 +42,7 @@
        </bean>
 
        <!-- redis service bean配置 -->
-       <bean id="redisService" class="org.spring.redis.RedisService" >
+       <bean id="redisService" class="org.spring.spring.redis.RedisService" >
               <property name="redisTemplate" ref="redisTemplate"/>
               <property name="cacheTTL" value="${redis.ttl}"/>
        </bean>

@@ -1,4 +1,4 @@
-package org.jeff.domain;
+package org.spring.jeff.domain;
 
 /**
  * 描述:用户类
