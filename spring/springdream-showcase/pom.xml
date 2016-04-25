@@ -5,7 +5,7 @@
     <groupId>springdream</groupId>
     <artifactId>springdream-showcase</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
 
     <name>springdream.showcase</name>
     <url>http://maven.apache.org</url>
