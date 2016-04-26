@@ -1,5 +1,9 @@
 # springdream
-spring dream （春梦）项目，记录着我学习spring并造出来一些轮子，可以供大家学习很多的项目
+a pragmatic style JavaEE example, include spring4 / spring boot / mybatis ...
 
-#### Spring Boot [传送门]
-基于Spring Boot的Web应用, 典型的增删改查管理.
+#### Spring Boot [[传送门]](https://github.com/JeffLi1993/springdream/tree/master/springboot/README.md "Spring Boot wiki")
+基于Spring Boot的大杂烩.
+
+**springboot-helloworld**
+SpringBoot HelloWorld 案例的详解
+
