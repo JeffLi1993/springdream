@@ -1,7 +1,4 @@
 #### Mybatis
-基于Spring Boot的大杂烩.
+基于Mybatis的学习案例.
 
-**springboot-helloworld** -
- [SpringBoot HelloWorld 案例的详解](http://www.bysocket.com/?p=1124)
-
-
+**springboot-learning** - Mybatis 学习案例

@@ -1,8 +1,5 @@
 #### Spring Boot
-基于Spring的五花八门.
+基于Spring Boot的大杂烩.
 
-**springdream-ioc** - 简单的IOC实现
-**springdream-showcase** - 复杂的Spring案例
-
-
-
+**springboot-helloworld** -
+ [SpringBoot HelloWorld 案例的详解](http://www.bysocket.com/?p=1124)

@@ -1,4 +1,5 @@
 #### Spring
-基于Mybatis的学习案例.
+基于Spring的五花八门.
 
-**springboot-learning** - Mybatis 学习案例
+**springdream-ioc** - 简单的IOC实现
+**springdream-showcase** - 复杂的Spring案例
